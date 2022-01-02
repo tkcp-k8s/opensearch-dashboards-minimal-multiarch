@@ -1,4 +1,4 @@
-# Original is at https://github.com/opensearch-project/opensearch-build/blob/main/release/docker/dockerfiles/opensearch-dashboards.al2.dockerfile
+# Original is at https://github.com/opensearch-project/opensearch-build/blob/main/docker/release/dockerfiles/opensearch-dashboards.al2.dockerfile
 
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -36,7 +36,7 @@
 ########################### Stage 0 ########################
 FROM amazonlinux:2 AS linux_stage_0
 
-ARG UPSTREAM_VERSION=1.1.0
+ARG UPSTREAM_VERSION=1.2.0
 ARG UPSTREAM_BRANCH=main
 
 ARG UID=1000
@@ -64,7 +64,7 @@ RUN tar -xzf /tmp/opensearch-dashboards/opensearch-dashboards.tgz -C $OPENSEARCH
 ADD opensearch_dashboards.yml $OPENSEARCH_DASHBOARDS_HOME/config/
 
 # This comes straight from the repo for now
-ADD https://raw.githubusercontent.com/opensearch-project/opensearch-build/${UPSTREAM_BRANCH}/release/docker/config/opensearch-dashboards/opensearch-dashboards-docker-entrypoint.sh $OPENSEARCH_DASHBOARDS_HOME/
+ADD https://raw.githubusercontent.com/opensearch-project/opensearch-build/${UPSTREAM_BRANCH}/docker/release/config/opensearch-dashboards/opensearch-dashboards-docker-entrypoint.sh $OPENSEARCH_DASHBOARDS_HOME/
 
 # Make it executable, since it's coming over http.
 RUN chmod +x $OPENSEARCH_DASHBOARDS_HOME/*.sh
