@@ -50,7 +50,7 @@ jobs:
           platforms: linux/amd64,linux/arm64
           pull: true # avoid bitrot
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest,ghcr.io/${{ github.repository }}:${{ github.sha }}
+          tags: ghcr.io/${{ github.repository }}:latest
           labels: |
             org.opencontainers.image.title=${{ github.repository }}
             org.opencontainers.image.description=${{ github.event.repository.description }}
